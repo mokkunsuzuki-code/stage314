@@ -17,15 +17,13 @@
 <h2>Verify Command</h2>
 <pre>gpg --verify decision.json.sig decision.json</pre>
 
-<p>This decision is publicly verifiable.</p>
-
 <script>
 fetch('decision.json')
-  .then(r => r.text())
+  .then(r => r.ok ? r.text() : "ERROR: decision.json not found")
   .then(t => document.getElementById('decision').textContent = t);
 
 fetch('decision.json.sig')
-  .then(r => r.text())
+  .then(r => r.ok ? r.text() : "ERROR: signature not found")
   .then(t => document.getElementById('signature').textContent = t);
 </script>
 
