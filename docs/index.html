@@ -12,19 +12,20 @@
 <pre id="decision">Loading...</pre>
 
 <h2>Signature</h2>
-<pre id="signature">Loading...</pre>
+<p>Signature file is available:</p>
+<p><a href="decision.json.sig">decision.json.sig</a></p>
 
 <h2>Verify Command</h2>
 <pre>gpg --verify decision.json.sig decision.json</pre>
+
+<h2>Meaning</h2>
+<p>This page publicly exposes a signed verification decision.</p>
+<p>The final accept decision is explicitly approved and cryptographically signed.</p>
 
 <script>
 fetch('decision.json')
   .then(r => r.ok ? r.text() : "ERROR: decision.json not found")
   .then(t => document.getElementById('decision').textContent = t);
-
-fetch('decision.json.sig')
-  .then(r => r.ok ? r.text() : "ERROR: signature not found")
-  .then(t => document.getElementById('signature').textContent = t);
 </script>
 
 </body>
