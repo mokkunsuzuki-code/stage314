@@ -1,110 +1,94 @@
-Stage313 REMEDA Signed Responsibility
+Stage314 REMEDA Public Verification
 
-Stage313 introduces **cryptographic responsibility** into REMEDA.
+Stage314 introduces the **public verification layer** of REMEDA.
 
-The verification result is no longer just computed.
+The signed decision is no longer private.
 
-It is explicitly approved and signed by a human.
+It is now:
+
+- Publicly visible
+- Independently verifiable
+- Cryptographically accountable
 
 ---
 
 ## Core Concept
 
-Before Stage313:
+Stage313 created responsibility.
 
-- decision = system output
-- no explicit human responsibility
+Stage314 exposes that responsibility to the world.
 
-After Stage313:
+Anyone can:
 
-- decision + signature = accountable approval
-- the result is cryptographically bound to the signer
-
----
-
-## Signed Statement
-
-"I approve this verification result as accept."
-
-This statement is **digitally signed**.
+- See the decision
+- Verify the signature
+- Reproduce the result
 
 ---
 
-## Files
+## Public Verification URL
 
-- decision.json → final decision (authoritative)
-- decision.json.sig → detached signature (GPG)
-- signed_decision.json → signed metadata structure
-- manifest.json → verification input
-- verification.json → verification result
+https://mokkunsuzuki-code.github.io/stage314/
+
+This page provides:
+
+- Final decision
+- Signed proof
+- Verification method
 
 ---
 
-## How to Verify
+## Decision
 
-Anyone can verify the signature locally:
+```json
+{
+  "decision": "accept",
+  "signed_by": "Motohiro Suzuki",
+  "statement": "I approve this verification result as accept.",
+  "stage": 313
+}
+Verification
 
-```bash
+Anyone can verify:
+
 gpg --verify decision.json.sig decision.json
 
-Expected output:
+Expected result:
 
 Good signature from "Motohiro Suzuki"
-Security Model
-The signature cannot be forged without the private key
-The decision cannot be altered without breaking verification
-Anyone can independently verify the result
-Responsibility is explicit and non-repudiable
-Responsibility Model
+Trust Model
 
-Stage313 introduces a critical shift:
+This system guarantees:
 
-The system computes the result
-A human explicitly approves it
-The approval is cryptographically signed
-
-This establishes:
-
-Accountability
-Non-repudiation
-Verifiable human intent
-Stage Position
-Stage312 → Sellable verification (API)
-Stage313 → Signed responsibility ← current stage
-Stage314 → Public verification URL (next)
+Integrity (data is unchanged)
+Identity (signed by a real person)
+Accountability (explicit approval)
+Reproducibility (third-party verification)
 Why This Matters
 
-Verification alone is not enough.
+Traditional systems:
 
-To be trusted in real-world systems:
+Output results
 
-Someone must take responsibility
-That responsibility must be provable
+REMEDA Stage314:
 
-Stage313 makes responsibility:
+Proves results
+Assigns responsibility
+Enables public trust
+Position in Architecture
 
-Visible
-Verifiable
-Immutable
+Stage312 → Sellable API
+Stage313 → Signed responsibility
+Stage314 → Public verification ← current stage
+
+Monetization Path
+Verification API (Stage312)
+Trust scoring
+Enterprise verification pipelines
 License
 
 MIT License (2025)
 
-This project is released under the MIT License.
-You are free to use, modify, and distribute this software.
-
-See the LICENSE file for details.
-
-Summary
-
-Stage313 transforms verification into responsibility.
-
-It ensures that:
-
-A decision is not just generated
-It is explicitly approved
-It is cryptographically proven
-It is globally verifiable
 Author
 
 Motohiro Suzuki
